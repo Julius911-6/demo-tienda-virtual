@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO - Tienda de Tecnología</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-microchip text-brand-600 text-3xl"></i>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">DEMO</span>
+                </div>
+                
+                <!-- Navigation (Desktop) -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-500 hover:text-brand-600 transition font-medium">Inicio</a>
+                    <a href="#productos" class="text-gray-500 hover:text-brand-600 transition font-medium">Catálogo</a>
+                    <a href="#" class="text-gray-500 hover:text-brand-600 transition font-medium">Nosotros</a>
+                    <a href="#" class="text-gray-500 hover:text-brand-600 transition font-medium">Contacto</a>
+                </nav>
+
+                <!-- Cart Button -->
+                <div class="flex items-center">
+                    <button id="cart-toggle" class="relative p-2 text-gray-500 hover:text-brand-600 transition focus:outline-none">
+                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                        <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-brand-600 rounded-full">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Tech Background" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                    Innovación Tecnológica a tu Alcance
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                    Descubre los últimos dispositivos y accesorios. Calidad profesional, rendimiento excepcional y diseño vanguardista. Esta es una demostración de tu próximo sitio web.
+                </p>
+                <a href="#productos" class="inline-block bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
+                    Ver Productos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <main id="productos" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Nuestro Catálogo</h2>
+            <div class="w-24 h-1 bg-brand-600 mx-auto rounded"></div>
+            <p class="mt-4 text-gray-500">Equipos seleccionados para los más exigentes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="product-list">
+            <!-- Product 1 -->
+            <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                <div class="relative h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Laptop Pro" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Laptop Pro X15</h3>
+                        <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2 py-1 rounded">Nuevo</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 flex-grow">Procesador M2, 16GB RAM, 512GB SSD. Rendimiento extremo.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-extrabold text-brand-600">$1,299.00</span>
+                        <button class="add-to-cart-btn bg-gray-900 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition" data-id="1" data-name="Laptop Pro X15" data-price="1299.00">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                <div class="relative h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smartphone" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Smartphone Ultra</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 flex-grow">Pantalla OLED 6.7", Cámara 108MP, 5G. Batería todo el día.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-extrabold text-brand-600">$899.00</span>
+                        <button class="add-to-cart-btn bg-gray-900 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition" data-id="2" data-name="Smartphone Ultra" data-price="899.00">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                <div class="relative h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smartwatch" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Smartwatch Series 5</h3>
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded">Oferta</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 flex-grow">Monitor de salud, GPS integrado, resistente al agua.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-extrabold text-brand-600">$249.00</span>
+                        <button class="add-to-cart-btn bg-gray-900 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition" data-id="3" data-name="Smartwatch Series 5" data-price="249.00">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                <div class="relative h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Auriculares" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Auriculares Noise Cancelling</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 flex-grow">Audio de alta fidelidad, cancelación activa de ruido (ANC).</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-extrabold text-brand-600">$199.00</span>
+                        <button class="add-to-cart-btn bg-gray-900 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition" data-id="4" data-name="Auriculares Noise Cancelling" data-price="199.00">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                <div class="relative h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tablet" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Tablet Pro 11"</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 flex-grow">Pantalla Liquid Retina, compatible con lápiz óptico.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-extrabold text-brand-600">$799.00</span>
+                        <button class="add-to-cart-btn bg-gray-900 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition" data-id="5" data-name="Tablet Pro 11&quot;" data-price="799.00">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                <div class="relative h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Monitor" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Monitor Ultrawide 34"</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 flex-grow">Resolución 4K, 144Hz, ideal para productividad y gaming.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xl font-extrabold text-brand-600">$549.00</span>
+                        <button class="add-to-cart-btn bg-gray-900 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition" data-id="6" data-name="Monitor Ultrawide 34&quot;" data-price="549.00">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-microchip text-brand-500 text-2xl"></i>
+                        <span class="font-bold text-xl tracking-tight">DEMO</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Esta es una demostración de un sitio web profesional de comercio electrónico. Diseñado para ofrecer la mejor experiencia de usuario y convertir visitas en ventas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-brand-500 transition">Inicio</a></li>
+                        <li><a href="#productos" class="hover:text-brand-500 transition">Catálogo</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fa-brands fa-whatsapp mr-2 text-brand-500"></i> +591 68989536</li>
+                        <li><i class="fa-regular fa-envelope mr-2 text-brand-500"></i> contacto@demo.com</li>
+                        <li><i class="fa-solid fa-location-dot mr-2 text-brand-500"></i> Ciudad, País</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-sm text-gray-500">
+                &copy; <span id="current-year"></span> DEMO. Todos los derechos reservados. Creado como demostración.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar (Overlay) -->
+    <div id="cart-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-[60] hidden transition-opacity opacity-0"></div>
+    
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Header -->
+        <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+            <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping"></i> Tu Carrito
+            </h2>
+            <button id="close-cart" class="text-gray-400 hover:text-gray-600 focus:outline-none transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items -->
+        <div id="cart-items" class="flex-grow overflow-y-auto px-6 py-4 space-y-4">
+            <!-- Items will be injected here via JS -->
+            <div id="empty-cart-msg" class="text-center text-gray-500 py-10">
+                <i class="fa-solid fa-cart-arrow-down text-4xl mb-4 text-gray-300"></i>
+                <p>Tu carrito está vacío.</p>
+            </div>
+        </div>
+        
+        <!-- Footer / Checkout -->
+        <div class="px-6 py-6 border-t border-gray-200 bg-gray-50">
+            <div class="flex justify-between items-center mb-4 text-lg">
+                <span class="font-semibold text-gray-600">Total:</span>
+                <span id="cart-total" class="font-bold text-2xl text-brand-600">$0.00</span>
+            </div>
+            <button id="checkout-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Hacer Pedido por WhatsApp
+            </button>
+            <p class="text-xs text-center text-gray-500 mt-3">Serás redirigido a WhatsApp para confirmar tu pedido.</p>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-gray-900 text-white px-6 py-3 rounded shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-[80] flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-brand-500"></i>
+        <span id="toast-msg">Producto añadido al carrito</span>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
